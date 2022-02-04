@@ -36,7 +36,8 @@ security:
         api_token_refresh:
             pattern: ^/api/token/refresh
             stateless: true
-            refresh_jwt: ~
+            refresh_jwt:
+                provider: app_user_provider
         # main:
             # lazy: true
             # provider: app_user_provider
