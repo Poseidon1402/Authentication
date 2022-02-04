@@ -32,6 +32,11 @@ security:
             pattern:   ^/api
             stateless: true
             jwt: ~
+
+        api_token_refresh:
+            pattern: ^/api/token/refresh
+            stateless: true
+            refresh_jwt: ~
         # main:
             # lazy: true
             # provider: app_user_provider
