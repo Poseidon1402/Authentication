@@ -46,6 +46,16 @@ class OpenApiFactory implements OpenApiFactoryInterface{
             ],
         ]);
 
+        $schemas['token'] = new ArrayObject([
+            'type' => 'object',
+            'properties' => [
+                'token' => [
+                    'type' => 'string',
+                    'readOnly' => true
+                ]
+            ],
+        ]);
+
         #Remove parameters on a specific item
         $myAccountOperation = $openApi->getPaths()->getPath('/api/myAccount')->getGet()->withParameters([]);
         $myAccountPathItem = $openApi->getPaths()->getPath('/api/myAccount')->withGet($myAccountOperation);
@@ -66,11 +76,11 @@ class OpenApiFactory implements OpenApiFactoryInterface{
                 ),
                 responses: [
                     '200' => [
-                        'description' => 'User connected',
+                        'description' => 'Token JWT',
                         'content' => [
                             'application/json' => [
                                 'schema' => [
-                                    '$ref' => '#/components/schemas/User-user.read'
+                                    '$ref' => '#/components/schemas/token'
                                 ]
                             ]
                         ]
